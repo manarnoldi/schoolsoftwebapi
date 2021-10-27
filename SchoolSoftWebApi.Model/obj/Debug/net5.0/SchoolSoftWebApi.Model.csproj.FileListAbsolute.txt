@@ -1,0 +1,12 @@
+C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi.Model\obj\Debug\net5.0\SchoolSoftWebApi.Model.csproj.AssemblyReference.cache
+C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi.Model\obj\Debug\net5.0\SchoolSoftWebApi.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi.Model\obj\Debug\net5.0\SchoolSoftWebApi.Model.AssemblyInfoInputs.cache
+C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi.Model\obj\Debug\net5.0\SchoolSoftWebApi.Model.AssemblyInfo.cs
+C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi.Model\obj\Debug\net5.0\SchoolSoftWebApi.Model.csproj.CoreCompileInputs.cache
+C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi.Model\bin\Debug\net5.0\SchoolSoftWebApi.Model.deps.json
+C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi.Model\bin\Debug\net5.0\SchoolSoftWebApi.Model.dll
+C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi.Model\bin\Debug\net5.0\ref\SchoolSoftWebApi.Model.dll
+C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi.Model\bin\Debug\net5.0\SchoolSoftWebApi.Model.pdb
+C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi.Model\obj\Debug\net5.0\SchoolSoftWebApi.Model.dll
+C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi.Model\obj\Debug\net5.0\ref\SchoolSoftWebApi.Model.dll
+C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi.Model\obj\Debug\net5.0\SchoolSoftWebApi.Model.pdb

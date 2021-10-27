@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolSoftWeb", "SchoolSoftWebApi\SchoolSoftWeb.csproj", "{948200A8-D7BE-41E3-A59F-285BF9DC462B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolSoftWeb.Model", "SchoolSoftWebApi.Model\SchoolSoftWeb.Model.csproj", "{B9E0B316-827E-49BC-85FD-35C98E07FABA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{948200A8-D7BE-41E3-A59F-285BF9DC462B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{948200A8-D7BE-41E3-A59F-285BF9DC462B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{948200A8-D7BE-41E3-A59F-285BF9DC462B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{948200A8-D7BE-41E3-A59F-285BF9DC462B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9E0B316-827E-49BC-85FD-35C98E07FABA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9E0B316-827E-49BC-85FD-35C98E07FABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9E0B316-827E-49BC-85FD-35C98E07FABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9E0B316-827E-49BC-85FD-35C98E07FABA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {565A27EC-16D1-4AEC-A7B7-6411D41C3A0C}
+	EndGlobalSection
+EndGlobal

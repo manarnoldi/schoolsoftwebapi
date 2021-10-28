@@ -12,5 +12,6 @@ namespace SchoolSoftWeb.Services
         Task<IEnumerable<ApplicationUser>> GetUsers();
         Task<AuthenticationModel> GetTokenAsync(TokenRequestModel model);
         Task<Response> AddRoleAsync(AddRoleModel model);
+        Task<>
     }
 }

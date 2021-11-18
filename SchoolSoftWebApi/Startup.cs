@@ -43,6 +43,11 @@ namespace SchoolSoftWebApi
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
 
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+            });
+
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -83,7 +88,12 @@ namespace SchoolSoftWebApi
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SchoolSoftWebApi v1"));
             }
 
+            app.UseCors(x => x
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
             app.UseHttpsRedirection();
+
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();

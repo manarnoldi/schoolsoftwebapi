@@ -1,4 +1,6 @@
 ﻿using SchoolSoftWeb.Data.Repositories.Academics;
+using SchoolSoftWeb.Data.Repositories.School;
+using SchoolSoftWeb.Data.Repositories.Settings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +10,15 @@ namespace SchoolSoftWeb.Data
 {
     public interface IUnitOfWork : IDisposable
     {
+        /** School **/
+        IEventRepository Events { get; }
+        /** Classes **/
+        /** Academics **/
         IAcademicYearRepository AcademicYears { get; }
+        /** Students **/
+        /** Staff **/        
+        /** Settings **/
+        ISessionTypeRepository SessionTypes { get; }
         Task<int> Complete();
     }
 }

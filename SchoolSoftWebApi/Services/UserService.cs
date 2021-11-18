@@ -33,6 +33,11 @@ namespace SchoolSoftWeb.Services
             return await _userManager.Users.ToListAsync();
         }
 
+
+        public async Task<IEnumerable<IdentityRole>> GetRoles()
+        {
+            return await _roleManager.Roles.ToListAsync();
+        }
         public async Task<Response> RegisterAsync(RegisterModel model)
         {
             Response res = new Response()
@@ -122,7 +127,7 @@ namespace SchoolSoftWeb.Services
                 expires: DateTime.UtcNow.AddMinutes(_jwt.DurationInMinutes),
                 signingCredentials: signingCredentials);
             return jwtSecurityToken;
-        }
+        }        
 
         public async Task<Response> AddRoleAsync(AddRoleModel model)
         {
@@ -139,6 +144,15 @@ namespace SchoolSoftWeb.Services
                 res.ResponseMessage = $"No Accounts Registered with {model.Email}.";
                 return res;
             }
+
+            var userRoleExists = await _userManager.IsInRoleAsync(user, model.Role);
+            if (userRoleExists)
+            {
+                res.ErrorOccured = true;
+                res.ResponseMessage = "Role already exists to the user.";
+                return res;
+            }
+
             if (await _userManager.CheckPasswordAsync(user, model.Password))
             {
                 var roleExists = Enum.GetNames(typeof(Authorization.Roles)).Any(x => x.ToLower() == model.Role.ToLower());

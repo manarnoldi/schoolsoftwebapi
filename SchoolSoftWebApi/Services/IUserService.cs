@@ -1,4 +1,5 @@
-﻿using SchoolSoftWeb.Data.Identity;
+﻿using Microsoft.AspNetCore.Identity;
+using SchoolSoftWeb.Data.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +11,8 @@ namespace SchoolSoftWeb.Services
     {
         Task<Response> RegisterAsync(RegisterModel model);
         Task<IEnumerable<ApplicationUser>> GetUsers();
+        Task<IEnumerable<IdentityRole>> GetRoles();
         Task<AuthenticationModel> GetTokenAsync(TokenRequestModel model);
         Task<Response> AddRoleAsync(AddRoleModel model);
-        Task<>
     }
 }

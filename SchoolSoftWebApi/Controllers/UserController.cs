@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using SchoolSoftWeb.Data.Identity;
 using SchoolSoftWeb.Services;
 using System;
@@ -24,6 +25,12 @@ namespace SchoolSoftWeb.Controllers
             return Ok(await _userService.GetUsers());
         }
 
+        [HttpGet("roles")]
+        public async Task<ActionResult<IEnumerable<IdentityRole>>> GetRoles()
+        {
+            return Ok(await _userService.GetRoles());
+        }
+
         [HttpPost("register")]
         public async Task<ActionResult> RegisterAsync(RegisterModel model)
         {
@@ -41,7 +48,14 @@ namespace SchoolSoftWeb.Controllers
         public async Task<IActionResult> GetTokenAsync(TokenRequestModel model)
         {
             var result = await _userService.GetTokenAsync(model);
-            return Ok(result);
+            if(result.IsAuthenticated)
+            {
+                return Ok(result);
+            } else
+            {
+                return Forbid();
+            }
+            
         }
 
         [HttpPost("addrole")]

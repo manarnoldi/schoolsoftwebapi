@@ -32,32 +32,32 @@ namespace SchoolSoftWeb.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<AcademicYear>> GetAcademicYear(int id)
         {
-            var academicYear = await _unitOfWork.AcademicYears.GetById(id);
-            if (academicYear == null)
+            var academicyear = await _unitOfWork.AcademicYears.GetById(id);
+            if (academicyear == null)
             {
                 return NotFound();
             }
 
-            return academicYear;
+            return academicyear;
         }
 
         // PUT: api/AcademicYears/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutAcademicYear(int id, AcademicYear academicYear)
+        public async Task<IActionResult> PutAcademicYear(int id, AcademicYear _academicYear)
         {
-            var acadYear = await _unitOfWork.AcademicYears.GetById(id);
-            if (acadYear == null)
+            var academicYear = await _unitOfWork.AcademicYears.GetById(id);
+            if (academicYear == null)
             {
                 return NotFound("Academic year to be editted not found!");
             }
 
-            if (id != academicYear.Id)
+            if (id != _academicYear.Id)
             {
                 return BadRequest();
             }
             
-            _unitOfWork.AcademicYears.Update(academicYear);
+            _unitOfWork.AcademicYears.Update(_academicYear);
             try
             {
                 await _unitOfWork.Complete();
@@ -73,11 +73,11 @@ namespace SchoolSoftWeb.Controllers
         // POST: api/AcademicYears
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<AcademicYear>> PostAcademicYear(AcademicYear academicYear)
+        public async Task<ActionResult<AcademicYear>> PostAcademicYear(AcademicYear _academicYear)
         {
-            _unitOfWork.AcademicYears.Add(academicYear);
+            _unitOfWork.AcademicYears.Add(_academicYear);
             await _unitOfWork.Complete();
-            return CreatedAtAction("GetAcademicYear", new { id = academicYear.Id }, academicYear);
+            return CreatedAtAction("GetAcademicYear", new { id = _academicYear.Id }, _academicYear);
         }
 
         // DELETE: api/AcademicYears/5

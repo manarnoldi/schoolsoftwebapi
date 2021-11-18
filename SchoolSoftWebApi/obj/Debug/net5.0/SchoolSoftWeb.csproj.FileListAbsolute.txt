@@ -136,12 +136,11 @@ C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net5.0\Sch
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net5.0\SchoolSoftWeb.MvcApplicationPartsAssemblyInfo.cs
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net5.0\SchoolSoftWeb.MvcApplicationPartsAssemblyInfo.cache
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net5.0\staticwebassets\SchoolSoftWeb.StaticWebAssets.Manifest.cache
-C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net5.0\staticwebassets\SchoolSoftWeb.StaticWebAssets.xml
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net5.0\scopedcss\bundle\SchoolSoftWeb.styles.css
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net5.0\SchoolSoftWeb.RazorTargetAssemblyInfo.cache
-C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net5.0\SchoolSoftWeb.csproj.CopyComplete
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net5.0\SchoolSoftWeb.dll
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net5.0\ref\SchoolSoftWeb.dll
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net5.0\SchoolSoftWeb.pdb
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net5.0\SchoolSoftWeb.genruntimeconfig.cache
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net5.0\SchoolSoftWeb.csproj.CopyComplete

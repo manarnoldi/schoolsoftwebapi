@@ -1,14 +1,11 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using SchoolSoftWeb.Data;
@@ -16,10 +13,7 @@ using SchoolSoftWeb.Data.Identity;
 using SchoolSoftWeb.Services;
 using SchoolSoftWeb.Settings;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace SchoolSoftWebApi
 {
@@ -37,11 +31,11 @@ namespace SchoolSoftWebApi
         {
             services.Configure<JWT>(Configuration.GetSection("JWT"));
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddScoped<IUserService, UserService>();
-
+           
             string mySqlConnectionStr = Configuration.GetConnectionString("MysqlConnection");
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
+            services.AddScoped<IUserService, UserService>();           
 
             services.AddCors(c =>
             {
@@ -56,7 +50,7 @@ namespace SchoolSoftWebApi
                 .AddJwtBearer(o =>
                 {
                     o.RequireHttpsMetadata = false;
-                    o.SaveToken = false;
+                    o.SaveToken = true;
                     o.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateIssuerSigningKey = true,
@@ -76,6 +70,7 @@ namespace SchoolSoftWebApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SchoolSoftWebApi", Version = "v1" });
             });
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

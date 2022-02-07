@@ -7,6 +7,7 @@ namespace SchoolSoftWeb.Data.Identity
 {
     public class AuthenticationModel
     {
+        public string Id { get; set; }
         public string Message { get; set; }
         public bool IsAuthenticated { get; set; }
         public string UserName { get; set; }

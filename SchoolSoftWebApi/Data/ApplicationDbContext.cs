@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using SchoolSoftWeb.Data.Identity;
@@ -9,8 +12,10 @@ using SchoolSoftWeb.Model.Settings;
 using SchoolSoftWeb.Model.Shared;
 using SchoolSoftWeb.Model.Staff;
 using SchoolSoftWeb.Model.Students;
+using SchoolSoftWeb.Services;
 using System;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -18,9 +23,12 @@ namespace SchoolSoftWeb.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IConfiguration config)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options, IConfiguration config,
+             IHttpContextAccessor httpContextAccessor)
             : base(options)
         {
+            _httpContextAccessor = httpContextAccessor;
         }
 
         //Academics
@@ -77,14 +85,17 @@ namespace SchoolSoftWeb.Data
         public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
         {
             var entries = ChangeTracker.Entries().Where(e => e.Entity is Base && (e.State == EntityState.Added || e.State == EntityState.Modified));
+            var user = _httpContextAccessor.HttpContext.User?.FindFirstValue(ClaimTypes.NameIdentifier);
 
             foreach (var entityEntry in entries)
             {
                 ((Base)entityEntry.Entity).Modified = DateTime.Now;
+                ((Base)entityEntry.Entity).ModifiedBy = user;
 
                 if (entityEntry.State == EntityState.Added)
                 {
                     ((Base)entityEntry.Entity).Created = DateTime.Now;
+                    ((Base)entityEntry.Entity).CreatedBy = user;
                 }
             }
             return base.SaveChangesAsync(acceptAllChangesOnSuccess, cancellationToken);

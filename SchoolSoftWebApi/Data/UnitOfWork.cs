@@ -23,7 +23,8 @@ namespace SchoolSoftWeb.Data
             /** Students **/
             /** Staff **/
             /** Settings **/
-            SessionTypes = new SessionTypeRepository(_context);            
+            SessionTypes = new SessionTypeRepository(_context);
+            Religions = new ReligionRepository(_context);
         }
         /** School **/
         public IEventRepository Events { get; private set; }
@@ -34,6 +35,8 @@ namespace SchoolSoftWeb.Data
         /** Staff **/
         /** Settings **/
         public ISessionTypeRepository SessionTypes { get; private set; }
+
+        public IReligionRepository Religions { get; private set; }
 
         public async Task<int> Complete()
         {

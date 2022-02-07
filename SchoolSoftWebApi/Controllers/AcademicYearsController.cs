@@ -25,6 +25,7 @@ namespace SchoolSoftWeb.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AcademicYear>>> GetAcademicYears()
         {
+            //User.Claims.First
             return Ok(await _unitOfWork.AcademicYears.FindAll());
         }
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -28,11 +29,22 @@ namespace SchoolSoftWeb.Services
             _jwt = jwt.Value;
         }
 
+        //public async Task<ApplicationUser> GetUserByEmail (string email)
+        //{
+        //    var user = await _userManager.FindByEmailAsync(email);
+        //    return user;
+        //}
+
         public async Task<IEnumerable<ApplicationUser>> GetUsers()
         {
             return await _userManager.Users.ToListAsync();
         }
 
+        public async Task<ApplicationUser> GetUser(string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            return user;
+        }
 
         public async Task<IEnumerable<IdentityRole>> GetRoles()
         {
@@ -53,7 +65,7 @@ namespace SchoolSoftWeb.Services
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 PhoneNumber = model.PhoneNumber
-            };          
+            };
 
             var userWithSameEmail = await _userManager.FindByEmailAsync(model.Email);
             if (userWithSameEmail == null)
@@ -94,6 +106,7 @@ namespace SchoolSoftWeb.Services
                 authenticationModel.UserName = user.UserName;
                 var rolesList = await _userManager.GetRolesAsync(user).ConfigureAwait(false);
                 authenticationModel.Roles = rolesList.ToList();
+                authenticationModel.Id = user.Id;
                 return authenticationModel;
             }
             authenticationModel.IsAuthenticated = false;
@@ -127,7 +140,7 @@ namespace SchoolSoftWeb.Services
                 expires: DateTime.UtcNow.AddMinutes(_jwt.DurationInMinutes),
                 signingCredentials: signingCredentials);
             return jwtSecurityToken;
-        }        
+        }
 
         public async Task<Response> AddRoleAsync(AddRoleModel model)
         {

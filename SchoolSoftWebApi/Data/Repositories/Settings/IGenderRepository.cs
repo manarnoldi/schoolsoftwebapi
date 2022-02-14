@@ -2,7 +2,7 @@
 
 namespace SchoolSoftWeb.Data.Repositories.Settings
 {
-    public interface IReligionRepository: IGenericRepository<Religion>
+    public interface IGenderRepository : IGenericRepository<Gender>
     {
     }
 }

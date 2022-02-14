@@ -18,6 +18,7 @@ namespace SchoolSoftWeb.Data
         /** Students **/
         /** Staff **/        
         /** Settings **/
+        IGenderRepository Genders { get; }
         ISessionTypeRepository SessionTypes { get; }
         IReligionRepository Religions { get; }
         Task<int> Complete();

@@ -20,7 +20,6 @@ namespace SchoolSoftWeb.Controllers
         {
             _userService = userService;
             _logger = logger;
-            _logger.LogDebug(1, "NLog injected into HomeController.");
         }
 
         [HttpGet]

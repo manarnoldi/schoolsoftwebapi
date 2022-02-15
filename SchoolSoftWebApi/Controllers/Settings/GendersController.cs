@@ -105,7 +105,7 @@ namespace SchoolSoftWeb.Controllers.Settings
             var gender = await _unitOfWork.Genders.GetById(id);
             if (gender == null)
             {
-                _logger.LogError("Gender to be editted not found in the database.");
+                _logger.LogError("Gender to be edited not found in the database.");
                 return NotFound();
             }
 

@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SchoolSoftWeb.Controllers
+namespace SchoolSoftWeb.Controllers.Settings
 {
     [Authorize]
     [Route("api/[controller]")]
@@ -36,8 +36,7 @@ namespace SchoolSoftWeb.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Religion>> GetReligion(int id)
         {
-            var religion = await _unitOfWork.Religions.GetById(id); ;
-
+            var religion = await _unitOfWork.Religions.GetById(id);
             if (religion == null)
             {
                 _logger.LogError("Requested religion not found!");
@@ -104,7 +103,7 @@ namespace SchoolSoftWeb.Controllers
             var religion = await _unitOfWork.Religions.GetById(id);
             if (religion == null)
             {
-                _logger.LogError("Religion to be editted not found in the database.");
+                _logger.LogError("Religion to be edited not found in the database.");
                 return NotFound();
             }
 

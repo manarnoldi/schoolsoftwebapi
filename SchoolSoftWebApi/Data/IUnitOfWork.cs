@@ -2,8 +2,6 @@
 using SchoolSoftWeb.Data.Repositories.School;
 using SchoolSoftWeb.Data.Repositories.Settings;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace SchoolSoftWeb.Data
@@ -21,6 +19,12 @@ namespace SchoolSoftWeb.Data
         IGenderRepository Genders { get; }
         ISessionTypeRepository SessionTypes { get; }
         IReligionRepository Religions { get; }
+        IRelationshipRepository Relationships { get; }
+        INationalityRepository Nationalities { get; }
+        ISchoolLevelRepository SchoolLevels { get; }
+        IOccupationRepository Occupations { get; }
+        IDesignationRepository Designations { get; }
+        IEmploymentTypeRepository EmploymentTypes { get; }
         Task<int> Complete();
     }
 }

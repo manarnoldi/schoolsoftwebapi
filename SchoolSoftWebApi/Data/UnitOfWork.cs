@@ -26,6 +26,12 @@ namespace SchoolSoftWeb.Data
             SessionTypes = new SessionTypeRepository(_context);
             Religions = new ReligionRepository(_context);
             Genders = new GenderRepository(_context);
+            Relationships = new RelationshipRepository(_context);
+            Nationalities = new NationalityRepository(_context);
+            SchoolLevels = new SchoolLevelRepository(_context);
+            Occupations = new OccupationRepository(_context);
+            Designations = new DesignationRepository(_context);
+            EmploymentTypes = new EmploymentTypeRepository(_context);
         }
         /** School **/
         public IEventRepository Events { get; private set; }
@@ -38,6 +44,12 @@ namespace SchoolSoftWeb.Data
         public ISessionTypeRepository SessionTypes { get; private set; }
         public IReligionRepository Religions { get; private set; }
         public IGenderRepository Genders { get; private set; }
+        public IRelationshipRepository Relationships { get; private set; }
+        public INationalityRepository Nationalities { get; private set; }
+        public ISchoolLevelRepository SchoolLevels { get; private set; }
+        public IOccupationRepository Occupations { get; private set; }
+        public IDesignationRepository Designations { get; private set; }
+        public IEmploymentTypeRepository EmploymentTypes { get; private set; }
 
         public async Task<int> Complete()
         {

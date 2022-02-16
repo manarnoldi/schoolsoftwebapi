@@ -25,6 +25,8 @@ namespace SchoolSoftWeb.Data
         IOccupationRepository Occupations { get; }
         IDesignationRepository Designations { get; }
         IEmploymentTypeRepository EmploymentTypes { get; }
+        IOccurenceTypeRepository OccurenceTypes { get; }
+        IOutcomeRepository Outcomes { get; }
         Task<int> Complete();
     }
 }

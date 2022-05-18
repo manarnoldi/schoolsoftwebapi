@@ -1,6 +1,5 @@
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi.Model\bin\Debug\net6.0\SchoolSoftWeb.Model.deps.json
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi.Model\bin\Debug\net6.0\SchoolSoftWeb.Model.dll
-C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi.Model\bin\Debug\net6.0\ref\SchoolSoftWeb.Model.dll
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi.Model\bin\Debug\net6.0\SchoolSoftWeb.Model.pdb
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi.Model\obj\Debug\net6.0\SchoolSoftWeb.Model.csproj.AssemblyReference.cache
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi.Model\obj\Debug\net6.0\SchoolSoftWeb.Model.GeneratedMSBuildEditorConfig.editorconfig
@@ -10,3 +9,4 @@ C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi.Model\obj\Debug\net6
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi.Model\obj\Debug\net6.0\SchoolSoftWeb.Model.dll
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi.Model\obj\Debug\net6.0\ref\SchoolSoftWeb.Model.dll
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi.Model\obj\Debug\net6.0\SchoolSoftWeb.Model.pdb
+C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi.Model\obj\Debug\net6.0\refint\SchoolSoftWeb.Model.dll

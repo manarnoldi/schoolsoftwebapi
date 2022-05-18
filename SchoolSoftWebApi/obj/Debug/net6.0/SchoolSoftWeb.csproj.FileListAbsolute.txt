@@ -5,7 +5,6 @@ C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\bin\Debug\net6.0\Sch
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\bin\Debug\net6.0\SchoolSoftWeb.deps.json
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\bin\Debug\net6.0\SchoolSoftWeb.runtimeconfig.json
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\bin\Debug\net6.0\SchoolSoftWeb.dll
-C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\bin\Debug\net6.0\ref\SchoolSoftWeb.dll
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\bin\Debug\net6.0\SchoolSoftWeb.pdb
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\bin\Debug\net6.0\Humanizer.dll
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\bin\Debug\net6.0\MessagePack.dll
@@ -273,3 +272,4 @@ C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net6.0\Sch
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net6.0\ref\SchoolSoftWeb.dll
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net6.0\SchoolSoftWeb.pdb
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net6.0\SchoolSoftWeb.genruntimeconfig.cache
+C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net6.0\refint\SchoolSoftWeb.dll

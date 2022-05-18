@@ -1,12 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
-using SchoolSoftWeb.Model.Settings;
+﻿using SchoolSoftWeb.Model.Settings;
 using SchoolSoftWeb.Model.Shared;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SchoolSoftWeb.Model.School
 {
@@ -42,6 +36,11 @@ namespace SchoolSoftWeb.Model.School
         [Display(Name = "School vision")]
         [StringLength(255)]
         public string Vision { get; set; }
+
+        [Required(ErrorMessage = "Enter the school mission")]
+        [Display(Name = "School mission")]
+        [StringLength(255)]
+        public string Mission { get; set; }
 
         [Required(ErrorMessage = "Enter the shool initials")]
         [Display(Name = "School initials")]

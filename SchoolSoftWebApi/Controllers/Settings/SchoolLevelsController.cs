@@ -36,7 +36,7 @@ namespace SchoolSoftWeb.Controllers.Settings
         [HttpGet("{id}")]
         public async Task<ActionResult<SchoolLevel>> GetSchoolLevel(int id)
         {
-            var schoollevel = await _unitOfWork.SchoolLevels.GetById(id); ;
+            var schoollevel = await _unitOfWork.SchoolLevels.GetById(id);
 
             if (schoollevel == null)
             {

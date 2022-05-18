@@ -34,6 +34,8 @@ namespace SchoolSoftWeb.Data
             EmploymentTypes = new EmploymentTypeRepository(_context);
             OccurenceTypes = new OccurenceTypeRepository(_context);
             Outcomes = new OutcomeRepository(_context);
+            StaffCategories = new StaffCategoryRepository(_context);
+            SchoolDetails = new SchoolDetailsRepository(_context);
         }
         /** School **/
         public IEventRepository Events { get; private set; }
@@ -54,6 +56,8 @@ namespace SchoolSoftWeb.Data
         public IEmploymentTypeRepository EmploymentTypes { get; private set; }
         public IOccurenceTypeRepository OccurenceTypes { get; private set; }
         public IOutcomeRepository Outcomes { get; private set; }
+        public IStaffCategoryRepository StaffCategories { get; private set; }
+        public ISchoolDetailsRepository SchoolDetails { get; private set; }
 
         public async Task<int> Complete()
         {

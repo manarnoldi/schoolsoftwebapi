@@ -10,6 +10,7 @@ namespace SchoolSoftWeb.Data
     {
         /** School **/
         IEventRepository Events { get; }
+        ISchoolDetailsRepository SchoolDetails { get; }
         /** Classes **/
         /** Academics **/
         IAcademicYearRepository AcademicYears { get; }
@@ -27,6 +28,7 @@ namespace SchoolSoftWeb.Data
         IEmploymentTypeRepository EmploymentTypes { get; }
         IOccurenceTypeRepository OccurenceTypes { get; }
         IOutcomeRepository Outcomes { get; }
+        IStaffCategoryRepository StaffCategories { get; }
         Task<int> Complete();
     }
 }

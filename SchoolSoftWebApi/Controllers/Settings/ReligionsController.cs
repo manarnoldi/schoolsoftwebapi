@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 
 namespace SchoolSoftWeb.Controllers.Settings
 {
-    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ReligionsController : ControllerBase

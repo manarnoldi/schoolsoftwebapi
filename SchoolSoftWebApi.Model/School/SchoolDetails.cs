@@ -1,6 +1,7 @@
 ﻿using SchoolSoftWeb.Model.Settings;
 using SchoolSoftWeb.Model.Shared;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SchoolSoftWeb.Model.School
 {
@@ -11,7 +12,7 @@ namespace SchoolSoftWeb.Model.School
         [StringLength(255)]
         public string Name { get; set; }
 
-        [Required(ErrorMessage = "Enter the shool address")]
+        [Required(ErrorMessage = "Enter the school address")]
         [Display(Name = "School address")]
         [StringLength(255)]
         public string Address { get; set; }
@@ -24,7 +25,7 @@ namespace SchoolSoftWeb.Model.School
         [Display(Name = "School email")]
         [StringLength(255)]
         [RegularExpression(@"(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|""(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*"")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])",
-            ErrorMessage = "The email address is not entered in a correct format")]
+            ErrorMessage = "The entered email address is not in a correct format")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Enter the shool motto")]
@@ -53,9 +54,7 @@ namespace SchoolSoftWeb.Model.School
         public string Website { get; set; }
 
         [Display(Name = "School logo")]
-        [StringLength(255)]
-        public string LogoUrl { get; set; }
-
+        public string LogoAsBase64 { get; set; }
         public int SchoolLevelId { get; set; }
         public SchoolLevel SchoolLevel { get; set; }
     }

@@ -81,13 +81,13 @@ namespace SchoolSoftWeb.Controllers.School
         // POST: api/SchoolDetails
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<SchoolDetails>> PostSchoolDetails(SchoolDetails _schoolDetails)
+        public async Task<ActionResult<SchoolDetails>> PostSchoolDetails([FromBody] SchoolDetails _schoolDetails)
         {
             var schoolDetails = await _unitOfWork.SchoolDetails.Find(r => r.Name == _schoolDetails.Name);
             if (schoolDetails.Count() > 0)
             {
-                _logger.LogError("School details already exists in the database.");
-                return Conflict("School details already exists in the database.");
+                _logger.LogError("School details already exist in the database.");
+                return Conflict("School details already exist in the database.");
             }
 
             _unitOfWork.SchoolDetails.Add(_schoolDetails);

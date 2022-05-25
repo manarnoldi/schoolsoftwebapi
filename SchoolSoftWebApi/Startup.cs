@@ -12,6 +12,7 @@ using SchoolSoftWeb.Data;
 using SchoolSoftWeb.Data.Identity;
 using SchoolSoftWeb.Services;
 using SchoolSoftWeb.Settings;
+using System.Text.Json.Serialization;
 using System;
 using System.Text;
 
@@ -31,11 +32,11 @@ namespace SchoolSoftWebApi
         {
             services.Configure<JWT>(Configuration.GetSection("JWT"));
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
-           
+
             string mySqlConnectionStr = Configuration.GetConnectionString("MysqlConnection");
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseMySql(mySqlConnectionStr, ServerVersion.AutoDetect(mySqlConnectionStr)));
-            services.AddScoped<IUserService, UserService>();           
+            services.AddScoped<IUserService, UserService>();
 
             services.AddCors(c =>
             {
@@ -64,11 +65,18 @@ namespace SchoolSoftWebApi
                     };
                 });
 
-            services.AddControllers();
+            services
+                .AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+                    options.JsonSerializerOptions.WriteIndented = true;
+                });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SchoolSoftWebApi", Version = "v1" });
             });
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddHttpContextAccessor();
         }
@@ -92,6 +100,17 @@ namespace SchoolSoftWebApi
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.  
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "SchoolSoftWebApi V1");
+                c.DefaultModelsExpandDepth(-1);
+                c.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.None);
+            });
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

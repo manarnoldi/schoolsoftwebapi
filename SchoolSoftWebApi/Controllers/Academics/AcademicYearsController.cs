@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using SchoolSoftWeb.Data;
 using SchoolSoftWeb.Model.Academics;
 
-namespace SchoolSoftWeb.Controllers
+namespace SchoolSoftWeb.Academics.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

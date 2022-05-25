@@ -10,6 +10,7 @@ namespace SchoolSoftWeb.Model.Enums
     {
         Active,
         Suspended,
-        Terminated
+        Terminated,
+        Completed
     }
 }

@@ -10,7 +10,10 @@ namespace SchoolSoftWeb.Data.Repositories
     {
         Task<T> GetById(int? id);
         Task<IEnumerable<T>> FindAll();
-        Task<IEnumerable<T>> Find(Expression<Func<T, bool>> expression);
+        //Task<IEnumerable<T>> Find(Expression<Func<T, bool>> expression);
+        Task<IEnumerable<T>> Find(Expression<Func<T, bool>> filter = null,
+            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
+            string includeProperties = "");
         void Add(T entity);
         void AddRange(IEnumerable<T> entities);
         void Update(T entity);

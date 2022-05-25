@@ -25,10 +25,38 @@ namespace SchoolSoftWeb.Data.Repositories
             _context.Set<T>().AddRange(entities);
         }
 
-        public async Task<IEnumerable<T>> Find(Expression<Func<T, bool>> expression)
+        public async Task<IEnumerable<T>> Find(
+            Expression<Func<T, bool>> filter = null,
+            Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
+            string includeProperties = "")
         {
-            return await _context.Set<T>().Where(expression).ToListAsync();
+            IQueryable<T> query = _context.Set<T>();
+
+            if (filter != null)
+            {
+                query = query.Where(filter);
+            }
+
+            foreach (var includeProperty in includeProperties.Split
+                (new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                query = query.Include(includeProperty);
+            }
+
+            if (orderBy != null)
+            {
+                return await orderBy(query).ToListAsync();
+            }
+            else
+            {
+                return await query.ToListAsync();
+            }
         }
+
+        //public async Task<IEnumerable<T>> Find(Expression<Func<T, bool>> expression)
+        //{
+        //    return await _context.Set<T>().Where(expression).ToListAsync();
+        //}
 
         public async Task<IEnumerable<T>> FindAll()
         {

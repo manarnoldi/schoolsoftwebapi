@@ -1,4 +1,5 @@
 ﻿using SchoolSoftWeb.Data.Repositories.Academics;
+using SchoolSoftWeb.Data.Repositories.Class;
 using SchoolSoftWeb.Data.Repositories.School;
 using SchoolSoftWeb.Data.Repositories.Settings;
 using SchoolSoftWeb.Model.Class;
@@ -18,8 +19,10 @@ namespace SchoolSoftWeb.Data
             /** School **/
             Events = new EventRepository(_context);
             /** Classes **/
+            Sessions = new SessionRepository(_context);
             /** Academics **/
             AcademicYears = new AcademicYearRepository(_context);
+            Curricula = new CurriculumRepository(_context);
             /** Students **/
             /** Staff **/
             /** Settings **/
@@ -40,8 +43,10 @@ namespace SchoolSoftWeb.Data
         /** School **/
         public IEventRepository Events { get; private set; }
         /** Classes **/
+        public ISessionRepository Sessions { get; private set; }
         /** Academics **/
         public IAcademicYearRepository AcademicYears { get; private set; }
+        public ICurriculumRepository Curricula { get; private set; }
         /** Students **/
         /** Staff **/
         /** Settings **/

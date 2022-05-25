@@ -10,6 +10,7 @@ namespace SchoolSoftWeb.Data.Repositories.School
     {
         public EventRepository(ApplicationDbContext context) : base(context)
         {
+            
         }
     }
 }

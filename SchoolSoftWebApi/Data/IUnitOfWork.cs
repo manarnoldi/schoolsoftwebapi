@@ -1,4 +1,5 @@
 ﻿using SchoolSoftWeb.Data.Repositories.Academics;
+using SchoolSoftWeb.Data.Repositories.Class;
 using SchoolSoftWeb.Data.Repositories.School;
 using SchoolSoftWeb.Data.Repositories.Settings;
 using System;
@@ -12,10 +13,12 @@ namespace SchoolSoftWeb.Data
         IEventRepository Events { get; }
         ISchoolDetailsRepository SchoolDetails { get; }
         /** Classes **/
+        ISessionRepository Sessions { get; }
         /** Academics **/
         IAcademicYearRepository AcademicYears { get; }
+        ICurriculumRepository Curricula { get; }
         /** Students **/
-        /** Staff **/        
+        /** Staff **/
         /** Settings **/
         IGenderRepository Genders { get; }
         ISessionTypeRepository SessionTypes { get; }

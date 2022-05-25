@@ -3,9 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using SchoolSoftWeb.Data;
 using SchoolSoftWeb.Model.School;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
-namespace SchoolSoftWeb.Controllers
+namespace SchoolSoftWeb.School.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -22,7 +23,8 @@ namespace SchoolSoftWeb.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Event>>> GetEvents()
         {
-            return Ok(await _unitOfWork.Events.FindAll());
+            var events = await _unitOfWork.Events.Find(orderBy: q => q.OrderByDescending(d => d.EventYear).ThenByDescending(d => d.StartDate), includeProperties: "Session");
+            return Ok(events);
         }
 
         // GET: api/Events/5

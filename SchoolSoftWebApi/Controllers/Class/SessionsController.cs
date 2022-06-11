@@ -28,7 +28,7 @@ namespace SchoolSoftWeb.Controllers.Class
         public async Task<ActionResult<IEnumerable<Session>>> GetSessions()
         {
             _logger.LogInformation("Sessions retrieved successfully!");
-            return Ok(await _unitOfWork.Sessions.Find(includeProperties: "AcademicYear"));
+            return Ok(await _unitOfWork.Sessions.Find(includeProperties: "AcademicYear,SessionType,Curriculum"));
         }
 
         // GET: api/Sessions/5
@@ -41,7 +41,7 @@ namespace SchoolSoftWeb.Controllers.Class
                 _logger.LogError("Requested session not found!");
                 return NotFound();
             }
-            _logger.LogInformation("Requested session found!");
+            _logger.LogInformation("Requested session not found!");
             return session;
         }
 
@@ -82,13 +82,6 @@ namespace SchoolSoftWeb.Controllers.Class
         [HttpPost]
         public async Task<ActionResult<Session>> PostSession(Session _session)
         {
-            var sessions = await _unitOfWork.Sessions.Find(r => r.SessionName == _session.SessionName);
-            if (sessions.Count() > 0)
-            {
-                _logger.LogError("Session already exists in the database.");
-                return Conflict("Session already exists in the database.");
-            }
-
             _unitOfWork.Sessions.Add(_session);
             await _unitOfWork.Complete();
             _logger.LogInformation("Session added successfully");
@@ -102,7 +95,7 @@ namespace SchoolSoftWeb.Controllers.Class
             var session = await _unitOfWork.Sessions.GetById(id);
             if (session == null)
             {
-                _logger.LogError("Session to be edited not found in the database.");
+                _logger.LogError("Session to be deleted not found in the database.");
                 return NotFound();
             }
 

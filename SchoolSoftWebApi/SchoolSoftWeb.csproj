@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Controllers\student\" />
     <Folder Include="Data\Repositories\Staff\" />
     <Folder Include="Data\Repositories\Students\" />
   </ItemGroup>

@@ -3,13 +3,15 @@ using SchoolSoftWeb.Model.Students;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SchoolSoftWeb.Model.Shared
 {
-    public class Discipline : Base
+    [Table("Disciplines")]
+    public abstract class Discipline : Base
     {
         [Required(ErrorMessage = "Enter occurence details")]
         [Display(Name = "Occurence details")]

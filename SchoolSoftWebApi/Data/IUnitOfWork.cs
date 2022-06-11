@@ -14,6 +14,7 @@ namespace SchoolSoftWeb.Data
         ISchoolDetailsRepository SchoolDetails { get; }
         /** Classes **/
         ISessionRepository Sessions { get; }
+        ISchoolClassRepository SchoolClasses { get; }
         /** Academics **/
         IAcademicYearRepository AcademicYears { get; }
         ICurriculumRepository Curricula { get; }

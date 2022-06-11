@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SchoolSoftWeb.Model.Shared
 {
-    public class Base
+    public abstract class Base
     {
         [BindNever]
         public int Id { get; set; }

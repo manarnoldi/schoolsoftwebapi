@@ -1,16 +1,19 @@
 ﻿using SchoolSoftWeb.Model.Academics;
+using SchoolSoftWeb.Model.Class;
 using SchoolSoftWeb.Model.School;
 using SchoolSoftWeb.Model.Settings;
 using SchoolSoftWeb.Model.Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SchoolSoftWeb.Model.Staff
 {
+    [Table("Staffs")]
     public class StaffDetails : Person
     {
         [Display(Name = "School identity number")]
@@ -23,9 +26,8 @@ namespace SchoolSoftWeb.Model.Staff
         public Designation Designation { get; set; }
         public int EmploymentTypeId { get; set; }
         public EmploymentType EmploymentType { get; set; }
-
+        public List<SchoolClass> SchoolClasses { get; set; }
         public List<StaffSubject> StaffSubjects { get; set; }
-        public List<StaffClass> StaffClasses { get; set; }
         public List<StaffAttendance> StaffAttendances { get; set; }
         public List<StaffDiscipline> StaffDisciplines { get; set; }
         public List<Department> Departments { get; set; }

@@ -1,15 +1,17 @@
 ﻿using SchoolSoftWeb.Model.Shared;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SchoolSoftWeb.Model.Staff
 {
-  public  class StaffAttendance: Attendance
+    [Table("StaffAttendances")]
+    public class StaffAttendance : Attendance
     {
         public int StaffDetailsId { get; set; }
-        public StaffDetails StaffDetails { get; set; }  
+        public StaffDetails StaffDetails { get; set; }
     }
 }

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SchoolSoftWeb.Model.Shared
 {
-    public class SettingsBase : Base
+    public abstract class SettingsBase : Base
     {
         [Required(ErrorMessage = "Enter the name")]
         [StringLength(255)]

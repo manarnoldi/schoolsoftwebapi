@@ -1,12 +1,14 @@
 ﻿using SchoolSoftWeb.Model.Shared;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SchoolSoftWeb.Model.Students
 {
+    [Table("StudentAttendances")]
   public  class StudentAttendance: Attendance
     {
         public int StudentClassId { get; set; }

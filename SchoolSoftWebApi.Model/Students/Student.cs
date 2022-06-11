@@ -7,24 +7,26 @@ using SchoolSoftWeb.Model.Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SchoolSoftWeb.Model.Students
 {
-  public  class Student: Person
-    {                  
+    [Table("Students")]
+    public class Student : Person
+    {
         [Display(Name = "Addmission date")]
         public DateTime AdmissionDate { get; set; }
 
         [Display(Name = "Application date")]
-        public DateTime ApplicationDate { get; set; }        
+        public DateTime ApplicationDate { get; set; }
 
         [Display(Name = "Health concerns")]
         [StringLength(500)]
-        public string HealthConcerns { get; set; }      
-        
+        public string HealthConcerns { get; set; }
+
         public int LearningModeId { get; set; }
         public LearningMode LearningMode { get; set; }
 
@@ -33,7 +35,7 @@ namespace SchoolSoftWeb.Model.Students
         public List<FormerSchool> FormerSchools { get; set; }
         public List<StudentSubject> StudentSubjects { get; set; }
         public List<StudentDiscipline> StudentDisciplines { get; set; }
-        public List<StudentClass> StudentClasses{ get; set; }
+        public List<StudentClass> StudentClasses { get; set; }
         public List<ExamResult> ExamResults { get; set; }
     }
 }

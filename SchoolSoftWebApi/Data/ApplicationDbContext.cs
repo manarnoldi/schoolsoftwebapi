@@ -67,8 +67,7 @@ namespace SchoolSoftWeb.Data
 
         //Staff
         public DbSet<StaffAttendance> StaffAttendances { get; set; }
-        public DbSet<StaffClass> StaffClasses { get; set; }
-        public DbSet<StaffDetails> StaffDetails { get; set; }
+        public DbSet<StaffDetails> Staffs { get; set; }
         public DbSet<StaffDiscipline> StaffDisciplines { get; set; }
         public DbSet<StaffSubject> StaffSubjects { get; set; }
 
@@ -81,6 +80,12 @@ namespace SchoolSoftWeb.Data
         public DbSet<StudentDiscipline> StudentDisciplines { get; set; }
         public DbSet<StudentParent> StudentParents { get; set; }
         public DbSet<StudentSubject> StudentSubjects { get; set; }
+
+        //Base classes
+        public DbSet<Attendance> Attendances { get; set; }
+        public DbSet<Discipline> Disciplines { get; set; }
+        public DbSet<Person> Persons { get; set; }
+
 
         public override Task<int> SaveChangesAsync(bool acceptAllChangesOnSuccess, CancellationToken cancellationToken = default)
         {

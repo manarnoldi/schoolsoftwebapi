@@ -16,7 +16,7 @@ namespace SchoolSoftWeb.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.2")
+                .HasAnnotation("ProductVersion", "6.0.5")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -614,6 +614,12 @@ namespace SchoolSoftWeb.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("varchar(255)");
 
+                    b.Property<int?>("StaffDetailsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StaffId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Stream")
                         .IsRequired()
                         .HasMaxLength(255)
@@ -627,6 +633,8 @@ namespace SchoolSoftWeb.Migrations
                     b.HasIndex("AcademicYearId");
 
                     b.HasIndex("CurriculumId");
+
+                    b.HasIndex("StaffDetailsId");
 
                     b.HasIndex("StudentId");
 
@@ -1307,7 +1315,7 @@ namespace SchoolSoftWeb.Migrations
                     b.ToTable("StaffCategories");
                 });
 
-            modelBuilder.Entity("SchoolSoftWeb.Model.Shared.Discipline", b =>
+            modelBuilder.Entity("SchoolSoftWeb.Model.Shared.Attendance", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -1320,9 +1328,40 @@ namespace SchoolSoftWeb.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("varchar(255)");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("Modified")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<bool>("Present")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Remarks")
+                        .HasMaxLength(500)
+                        .HasColumnType("varchar(500)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Attendances");
+                });
+
+            modelBuilder.Entity("SchoolSoftWeb.Model.Shared.Discipline", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("CreatedBy")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)");
 
                     b.Property<DateTime>("Modified")
                         .HasColumnType("datetime(6)");
@@ -1358,9 +1397,7 @@ namespace SchoolSoftWeb.Migrations
 
                     b.HasIndex("OutcomeId");
 
-                    b.ToTable("Discipline");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Discipline");
+                    b.ToTable("Disciplines");
                 });
 
             modelBuilder.Entity("SchoolSoftWeb.Model.Shared.Person", b =>
@@ -1382,10 +1419,6 @@ namespace SchoolSoftWeb.Migrations
 
                     b.Property<DateTime>("DateOfBirth")
                         .HasColumnType("datetime(6)");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("longtext");
 
                     b.Property<string>("Email")
                         .HasMaxLength(255)
@@ -1432,88 +1465,7 @@ namespace SchoolSoftWeb.Migrations
 
                     b.HasIndex("ReligionId");
 
-                    b.ToTable("Person");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Person");
-                });
-
-            modelBuilder.Entity("SchoolSoftWeb.Model.Staff.StaffAttendance", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("CreatedBy")
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime>("Modified")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("ModifiedBy")
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<bool>("Present")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<string>("Remarks")
-                        .HasMaxLength(500)
-                        .HasColumnType("varchar(500)");
-
-                    b.Property<int>("StaffDetailsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("StaffDetailsId");
-
-                    b.ToTable("StaffAttendances");
-                });
-
-            modelBuilder.Entity("SchoolSoftWeb.Model.Staff.StaffClass", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("CreatedBy")
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<DateTime>("Modified")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("ModifiedBy")
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<string>("Remarks")
-                        .HasMaxLength(500)
-                        .HasColumnType("varchar(500)");
-
-                    b.Property<int>("SchoolClassId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("StaffDetailsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("SchoolClassId");
-
-                    b.HasIndex("StaffDetailsId");
-
-                    b.ToTable("StaffClasses");
+                    b.ToTable("Persons");
                 });
 
             modelBuilder.Entity("SchoolSoftWeb.Model.Staff.StaffSubject", b =>
@@ -1607,46 +1559,6 @@ namespace SchoolSoftWeb.Migrations
                     b.HasIndex("StudentId");
 
                     b.ToTable("FormerSchools");
-                });
-
-            modelBuilder.Entity("SchoolSoftWeb.Model.Students.StudentAttendance", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Created")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("CreatedBy")
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime>("Modified")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<string>("ModifiedBy")
-                        .HasMaxLength(255)
-                        .HasColumnType("varchar(255)");
-
-                    b.Property<bool>("Present")
-                        .HasColumnType("tinyint(1)");
-
-                    b.Property<string>("Remarks")
-                        .HasMaxLength(500)
-                        .HasColumnType("varchar(500)");
-
-                    b.Property<int>("StudentClassId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("StudentClassId");
-
-                    b.ToTable("StudentAttendances");
                 });
 
             modelBuilder.Entity("SchoolSoftWeb.Model.Students.StudentClass", b =>
@@ -1764,6 +1676,18 @@ namespace SchoolSoftWeb.Migrations
                     b.ToTable("StudentSubjects");
                 });
 
+            modelBuilder.Entity("SchoolSoftWeb.Model.Staff.StaffAttendance", b =>
+                {
+                    b.HasBaseType("SchoolSoftWeb.Model.Shared.Attendance");
+
+                    b.Property<int>("StaffDetailsId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("StaffDetailsId");
+
+                    b.ToTable("StaffAttendances");
+                });
+
             modelBuilder.Entity("SchoolSoftWeb.Model.Staff.StaffDetails", b =>
                 {
                     b.HasBaseType("SchoolSoftWeb.Model.Shared.Person");
@@ -1787,7 +1711,7 @@ namespace SchoolSoftWeb.Migrations
 
                     b.HasIndex("StaffCategoryId");
 
-                    b.HasDiscriminator().HasValue("StaffDetails");
+                    b.ToTable("Staffs");
                 });
 
             modelBuilder.Entity("SchoolSoftWeb.Model.Staff.StaffDiscipline", b =>
@@ -1802,7 +1726,7 @@ namespace SchoolSoftWeb.Migrations
 
                     b.HasIndex("StaffDetailsId");
 
-                    b.HasDiscriminator().HasValue("StaffDiscipline");
+                    b.ToTable("StaffDisciplines");
                 });
 
             modelBuilder.Entity("SchoolSoftWeb.Model.Students.Parent", b =>
@@ -1823,7 +1747,7 @@ namespace SchoolSoftWeb.Migrations
 
                     b.HasIndex("OccupationId");
 
-                    b.HasDiscriminator().HasValue("Parent");
+                    b.ToTable("Parents");
                 });
 
             modelBuilder.Entity("SchoolSoftWeb.Model.Students.Student", b =>
@@ -1845,7 +1769,19 @@ namespace SchoolSoftWeb.Migrations
 
                     b.HasIndex("LearningModeId");
 
-                    b.HasDiscriminator().HasValue("Student");
+                    b.ToTable("Students");
+                });
+
+            modelBuilder.Entity("SchoolSoftWeb.Model.Students.StudentAttendance", b =>
+                {
+                    b.HasBaseType("SchoolSoftWeb.Model.Shared.Attendance");
+
+                    b.Property<int>("StudentClassId")
+                        .HasColumnType("int");
+
+                    b.HasIndex("StudentClassId");
+
+                    b.ToTable("StudentAttendances");
                 });
 
             modelBuilder.Entity("SchoolSoftWeb.Model.Students.StudentDiscipline", b =>
@@ -1857,7 +1793,7 @@ namespace SchoolSoftWeb.Migrations
 
                     b.HasIndex("StudentId");
 
-                    b.HasDiscriminator().HasValue("StudentDiscipline");
+                    b.ToTable("StudentDisciplines");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -2028,6 +1964,10 @@ namespace SchoolSoftWeb.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("SchoolSoftWeb.Model.Staff.StaffDetails", "StaffDetails")
+                        .WithMany("SchoolClasses")
+                        .HasForeignKey("StaffDetailsId");
+
                     b.HasOne("SchoolSoftWeb.Model.Students.Student", "Student")
                         .WithMany("SchoolClasses")
                         .HasForeignKey("StudentId")
@@ -2037,6 +1977,8 @@ namespace SchoolSoftWeb.Migrations
                     b.Navigation("AcademicYear");
 
                     b.Navigation("Curriculum");
+
+                    b.Navigation("StaffDetails");
 
                     b.Navigation("Student");
                 });
@@ -2147,36 +2089,6 @@ namespace SchoolSoftWeb.Migrations
                     b.Navigation("Religion");
                 });
 
-            modelBuilder.Entity("SchoolSoftWeb.Model.Staff.StaffAttendance", b =>
-                {
-                    b.HasOne("SchoolSoftWeb.Model.Staff.StaffDetails", "StaffDetails")
-                        .WithMany("StaffAttendances")
-                        .HasForeignKey("StaffDetailsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("StaffDetails");
-                });
-
-            modelBuilder.Entity("SchoolSoftWeb.Model.Staff.StaffClass", b =>
-                {
-                    b.HasOne("SchoolSoftWeb.Model.Class.SchoolClass", "SchoolClass")
-                        .WithMany("StaffClasses")
-                        .HasForeignKey("SchoolClassId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("SchoolSoftWeb.Model.Staff.StaffDetails", "StaffDetails")
-                        .WithMany("StaffClasses")
-                        .HasForeignKey("StaffDetailsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("SchoolClass");
-
-                    b.Navigation("StaffDetails");
-                });
-
             modelBuilder.Entity("SchoolSoftWeb.Model.Staff.StaffSubject", b =>
                 {
                     b.HasOne("SchoolSoftWeb.Model.Academics.AcademicYear", "AcademicYear")
@@ -2221,17 +2133,6 @@ namespace SchoolSoftWeb.Migrations
                     b.Navigation("SchoolLevel");
 
                     b.Navigation("Student");
-                });
-
-            modelBuilder.Entity("SchoolSoftWeb.Model.Students.StudentAttendance", b =>
-                {
-                    b.HasOne("SchoolSoftWeb.Model.Students.StudentClass", "StudentClass")
-                        .WithMany("StudentAttendances")
-                        .HasForeignKey("StudentClassId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("StudentClass");
                 });
 
             modelBuilder.Entity("SchoolSoftWeb.Model.Students.StudentClass", b =>
@@ -2307,6 +2208,23 @@ namespace SchoolSoftWeb.Migrations
                     b.Navigation("Subject");
                 });
 
+            modelBuilder.Entity("SchoolSoftWeb.Model.Staff.StaffAttendance", b =>
+                {
+                    b.HasOne("SchoolSoftWeb.Model.Shared.Attendance", null)
+                        .WithOne()
+                        .HasForeignKey("SchoolSoftWeb.Model.Staff.StaffAttendance", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SchoolSoftWeb.Model.Staff.StaffDetails", "StaffDetails")
+                        .WithMany("StaffAttendances")
+                        .HasForeignKey("StaffDetailsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("StaffDetails");
+                });
+
             modelBuilder.Entity("SchoolSoftWeb.Model.Staff.StaffDetails", b =>
                 {
                     b.HasOne("SchoolSoftWeb.Model.Settings.Designation", "Designation")
@@ -2318,6 +2236,12 @@ namespace SchoolSoftWeb.Migrations
                     b.HasOne("SchoolSoftWeb.Model.Settings.EmploymentType", "EmploymentType")
                         .WithMany("StaffDetails")
                         .HasForeignKey("EmploymentTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SchoolSoftWeb.Model.Shared.Person", null)
+                        .WithOne()
+                        .HasForeignKey("SchoolSoftWeb.Model.Staff.StaffDetails", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -2336,6 +2260,12 @@ namespace SchoolSoftWeb.Migrations
 
             modelBuilder.Entity("SchoolSoftWeb.Model.Staff.StaffDiscipline", b =>
                 {
+                    b.HasOne("SchoolSoftWeb.Model.Shared.Discipline", null)
+                        .WithOne()
+                        .HasForeignKey("SchoolSoftWeb.Model.Staff.StaffDiscipline", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("SchoolSoftWeb.Model.Staff.StaffDetails", "StaffDetails")
                         .WithMany("StaffDisciplines")
                         .HasForeignKey("StaffDetailsId");
@@ -2345,6 +2275,12 @@ namespace SchoolSoftWeb.Migrations
 
             modelBuilder.Entity("SchoolSoftWeb.Model.Students.Parent", b =>
                 {
+                    b.HasOne("SchoolSoftWeb.Model.Shared.Person", null)
+                        .WithOne()
+                        .HasForeignKey("SchoolSoftWeb.Model.Students.Parent", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("SchoolSoftWeb.Model.Settings.Occupation", "Occupation")
                         .WithMany("Parents")
                         .HasForeignKey("OccupationId")
@@ -2356,6 +2292,12 @@ namespace SchoolSoftWeb.Migrations
 
             modelBuilder.Entity("SchoolSoftWeb.Model.Students.Student", b =>
                 {
+                    b.HasOne("SchoolSoftWeb.Model.Shared.Person", null)
+                        .WithOne()
+                        .HasForeignKey("SchoolSoftWeb.Model.Students.Student", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("SchoolSoftWeb.Model.School.LearningMode", "LearningMode")
                         .WithMany("Students")
                         .HasForeignKey("LearningModeId")
@@ -2365,8 +2307,31 @@ namespace SchoolSoftWeb.Migrations
                     b.Navigation("LearningMode");
                 });
 
+            modelBuilder.Entity("SchoolSoftWeb.Model.Students.StudentAttendance", b =>
+                {
+                    b.HasOne("SchoolSoftWeb.Model.Shared.Attendance", null)
+                        .WithOne()
+                        .HasForeignKey("SchoolSoftWeb.Model.Students.StudentAttendance", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("SchoolSoftWeb.Model.Students.StudentClass", "StudentClass")
+                        .WithMany("StudentAttendances")
+                        .HasForeignKey("StudentClassId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("StudentClass");
+                });
+
             modelBuilder.Entity("SchoolSoftWeb.Model.Students.StudentDiscipline", b =>
                 {
+                    b.HasOne("SchoolSoftWeb.Model.Shared.Discipline", null)
+                        .WithOne()
+                        .HasForeignKey("SchoolSoftWeb.Model.Students.StudentDiscipline", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("SchoolSoftWeb.Model.Students.Student", "Student")
                         .WithMany("StudentDisciplines")
                         .HasForeignKey("StudentId")
@@ -2425,8 +2390,6 @@ namespace SchoolSoftWeb.Migrations
             modelBuilder.Entity("SchoolSoftWeb.Model.Class.SchoolClass", b =>
                 {
                     b.Navigation("Exams");
-
-                    b.Navigation("StaffClasses");
 
                     b.Navigation("StudentClasses");
                 });
@@ -2519,9 +2482,9 @@ namespace SchoolSoftWeb.Migrations
                 {
                     b.Navigation("Departments");
 
-                    b.Navigation("StaffAttendances");
+                    b.Navigation("SchoolClasses");
 
-                    b.Navigation("StaffClasses");
+                    b.Navigation("StaffAttendances");
 
                     b.Navigation("StaffDisciplines");
 

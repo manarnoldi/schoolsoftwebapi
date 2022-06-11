@@ -4,12 +4,14 @@ using SchoolSoftWeb.Model.Shared;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SchoolSoftWeb.Model.Students
 {
+    [Table("Parents")]
     public class Parent : Person
     {
         [Display(Name = "Notify about student progress")]
@@ -19,8 +21,8 @@ namespace SchoolSoftWeb.Model.Students
         public bool Payer { get; set; }
 
         [Display(Name = "Picks up student")]
-        public bool Pickup { get; set; }      
-        
+        public bool Pickup { get; set; }
+
         public int OccupationId { get; set; }
         public Occupation Occupation { get; set; }
 

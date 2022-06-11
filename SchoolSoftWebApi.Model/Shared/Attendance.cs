@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace SchoolSoftWeb.Model.Shared
 {
-   public class Attendance: Base
+    [Table("Attendances")]
+   public abstract class Attendance: Base
     {
         [Display(Name = "Attendance date")]
         public DateTime Date { get; set; }

@@ -20,6 +20,7 @@ namespace SchoolSoftWeb.Data
             Events = new EventRepository(_context);
             /** Classes **/
             Sessions = new SessionRepository(_context);
+            SchoolClasses = new SchoolClassRepository(_context);
             /** Academics **/
             AcademicYears = new AcademicYearRepository(_context);
             Curricula = new CurriculumRepository(_context);
@@ -44,6 +45,7 @@ namespace SchoolSoftWeb.Data
         public IEventRepository Events { get; private set; }
         /** Classes **/
         public ISessionRepository Sessions { get; private set; }
+        public ISchoolClassRepository SchoolClasses { get; private set; }
         /** Academics **/
         public IAcademicYearRepository AcademicYears { get; private set; }
         public ICurriculumRepository Curricula { get; private set; }

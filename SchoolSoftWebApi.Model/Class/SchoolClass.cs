@@ -29,7 +29,7 @@ namespace SchoolSoftWeb.Model.Class
         public Curriculum Curriculum { get; set; }
         public int StudentId { get; set; }
         public Student Student { get; set; }
-        public int StaffId { get; set; }
+        public int StaffDetailsId { get; set; }
         public StaffDetails StaffDetails { get; set; }
 
         public List<Exam> Exams { get; set; }

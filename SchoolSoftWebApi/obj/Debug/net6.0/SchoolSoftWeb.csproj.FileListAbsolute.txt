@@ -273,3 +273,8 @@ C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net6.0\ref
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net6.0\SchoolSoftWeb.pdb
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net6.0\SchoolSoftWeb.genruntimeconfig.cache
 C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net6.0\refint\SchoolSoftWeb.dll
+C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net6.0\staticwebassets\msbuild.SchoolSoftWeb.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net6.0\staticwebassets\msbuild.build.SchoolSoftWeb.props
+C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.SchoolSoftWeb.props
+C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.SchoolSoftWeb.props
+C:\Personal\SchoolSoftWeb\SchoolSoftWebApi\SchoolSoftWebApi\obj\Debug\net6.0\staticwebassets.pack.json
